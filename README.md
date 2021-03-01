@@ -1,7 +1,5 @@
 # portfolio-2021
-# アプリ名
-
-ShoesProud
+# ShoesProud
 
 ## サイト概要
 
@@ -42,13 +40,12 @@ ShoesProud
 
 ## 設計書
 
-（まだ作成していませんが、以下を作成する予定です。）
 <ワイヤーフレーム>
 <ＥＲ図>
 <テーブル定義書>
 <アプリケーション設計図>
 
-## チャレンジ要素一覧
+## 機能一覧
 
 <https://docs.google.com/spreadsheets/d/1UPTsH8TD1ieBMIEVM1qml6f2SsBnVD5aobRJEjOdaYo/edit#gid=0>
 
@@ -60,7 +57,4 @@ ShoesProud
 - JS ライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
 
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名と URL を明記してください。
-- 使用しない場合は、使用素材の項目を README から削除してください。
