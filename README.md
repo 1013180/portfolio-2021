@@ -35,13 +35,6 @@
 ・趣味として自身の靴のエイジングを見返したり、他のユーザーの靴を見たいとき
 ・靴磨きをしたあとに、仕上がりをシェアしたいとき
 
-## 設計書
-
-<ワイヤーフレーム>
-<ＥＲ図>
-<テーブル定義書>
-<アプリケーション設計図>
-
 ## 機能一覧
 
 <https://docs.google.com/spreadsheets/d/1UPTsH8TD1ieBMIEVM1qml6f2SsBnVD5aobRJEjOdaYo/edit#gid=0>
