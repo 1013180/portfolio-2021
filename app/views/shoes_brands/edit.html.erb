@@ -1,0 +1,25 @@
+<% if @shoes_brand.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @shoes_brand.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="row">
+<div class="col-md-5 offset-md-3">
+ <h1 class="p-3 md-2 bg-light text-dark">ブランド名編集</h1>
+</div>
+</div>
+<div class="col-md-5 offset-md-3">
+<%= form_with model:@shoes_brand, method: :patch, local:true do |f| %>
+ <thead>
+  <tr>
+      <th>ジャンル名</th>
+      <th><%= f.text_field :brand_name %></th>
+      <th><%= f.submit '変更を保存', class: "btn btn-success"  %></th>
+  </tr>
+ </thead>
+</div>
+<% end %>

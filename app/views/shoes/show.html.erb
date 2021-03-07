@@ -1,0 +1,12 @@
+<% if @shoes.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @shoes.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="col-md-8 offset-md-2">
+ <h1 class="p-3 md-2 bg-light text-dark">シューズ画像詳細</h1>
+  <%= attachment_image_tag(@book.user, :profile_image, :fill, 300, 300, fallback: "no-image-icon.jpg") %>

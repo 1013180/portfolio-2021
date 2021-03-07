@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_082728) do
+ActiveRecord::Schema.define(version: 2021_03_07_135020) do
+
+  create_table "shoe_images", force: :cascade do |t|
+    t.integer "shoe_id"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shoes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shoes_size_id", null: false
+    t.integer "shoes_brand_id", null: false
+    t.integer "tag_id"
+    t.integer "comment_id"
+    t.integer "favorite_id"
+    t.text "description"
+    t.string "shoes_models"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shoes_brands", force: :cascade do |t|
+    t.string "brand_name", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -18,8 +44,11 @@ ActiveRecord::Schema.define(version: 2021_03_04_082728) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "profile_image_id"
+    t.string "name", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
