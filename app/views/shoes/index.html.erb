@@ -1,0 +1,19 @@
+<div class="row">
+<div class="col-md-7 offset-md-2">
+ <h1 class="p-3 md-2 bg-light text-dark">商品一覧</h1>
+</div>
+<div class="col-md-1">
+</div>
+</div>
+<div class="row">
+<div class="col-md-8 offset-md-2">
+<% @shoes.each do |shoes| %>
+  <%= attachment_image_tag shoes, :image %>
+  <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
+  <p>投稿日：<%= shoes.created_at.strftime('%Y/%m/%d') %></p>
+  <p>ショップ名：<%= post_image.shop_name %></p>
+  <p>説明：<%= post_image.caption %></p>
+  <p>ユーザーネーム：<%= post_image.user.name %></p>
+</div>
+</div>
+<% end %>

@@ -1,0 +1,48 @@
+<% if @shoes_brand.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @shoes_brand.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="col-md-5 offset-md-2">
+  <h1 class="p-3 md-2 bg-light text-dark">シューズブランド一覧・追加</h1>
+</div>
+
+<div class="col-md-8 offset-md-2">
+  <%= form_with model:@shoes_brand, url:shoes_brands_path, method: :post, local:true do |f| %>
+    <div class="form-group row">
+      <p class="col-md-3 pt-1 mb-0">ブランド名</p>
+      <p><%= f.text_field :brand_name %></p>
+      <p><%= f.submit '新規登録', class: "btn btn-success" %></p>
+    </div>
+
+    <table class='table'>
+      <thead class="bg-light">
+        <tr>
+          <th>ブランド</th>
+        </tr>
+      </thead>
+    </table>
+  <% end %>
+
+  <% @shoes_brands.each do |brand| %>
+    <div class="col-md-5 offset-md-1">
+      <div class="form-group">
+        <div class="form-group row">
+          <p class="col-md-9 pt-1 mb-0"><%= brand.brand_name %></p>
+          <%= link_to "編集する",  edit_shoes_brand_path(brand), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="text-center">
+    <ul class="pagination">
+      <%= paginate(@shoes_brands) %>
+    </ul>
+  </div>
+</div>
