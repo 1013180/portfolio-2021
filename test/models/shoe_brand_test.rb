@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ShoesBrandTest < ActiveSupport::TestCase
+class ShoeBrandTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
