@@ -3,7 +3,7 @@ class ShoesController < ApplicationController
     #byebug
     @shoe = Shoe.new
     @shoe.shoe_images.build
-    @shoes_brand = ShoesBrand.all
+    @shoe_brand = ShoeBrand.all
   end
 
   def create

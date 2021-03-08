@@ -1,7 +1,7 @@
-<% if @shoes_brand.errors.any? %>
+<% if @shoe_brand.errors.any? %>
   <div id="error_explanation">
     <ul>
-      <% @shoes_brand.errors.full_messages.each do |message| %>
+      <% @shoe_brand.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
@@ -13,7 +13,7 @@
 </div>
 
 <div class="col-md-8 offset-md-2">
-  <%= form_with model:@shoes_brand, url:shoes_brands_path, method: :post, local:true do |f| %>
+  <%= form_with model:@shoe_brand, url:shoe_brands_path, method: :post, local:true do |f| %>
     <div class="form-group row">
       <p class="col-md-3 pt-1 mb-0">ブランド名</p>
       <p><%= f.text_field :brand_name %></p>
@@ -29,12 +29,12 @@
     </table>
   <% end %>
 
-  <% @shoes_brands.each do |brand| %>
+  <% @shoe_brands.each do |brand| %>
     <div class="col-md-5 offset-md-1">
       <div class="form-group">
         <div class="form-group row">
           <p class="col-md-9 pt-1 mb-0"><%= brand.brand_name %></p>
-          <%= link_to "編集する",  edit_shoes_brand_path(brand), class: "btn btn-success" %>
+          <%= link_to "編集する",  edit_shoe_brand_path(brand), class: "btn btn-success" %>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
 
   <div class="text-center">
     <ul class="pagination">
-      <%= paginate(@shoes_brands) %>
+      <%= paginate(@shoe_brands) %>
     </ul>
   </div>
 </div>
