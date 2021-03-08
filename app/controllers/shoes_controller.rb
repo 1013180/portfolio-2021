@@ -4,6 +4,7 @@ class ShoesController < ApplicationController
     @shoe = Shoe.new
     @shoe.shoe_images.build
     @shoe_brand = ShoeBrand.all
+    @shoe_size = ShoeSize.all
   end
 
   def create

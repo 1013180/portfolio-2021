@@ -1,0 +1,48 @@
+<% if @shoe_size.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @shoe_size.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="col-md-5 offset-md-2">
+  <h1 class="p-3 md-2 bg-light text-dark">シューズサイズ一覧・追加</h1>
+</div>
+
+<div class="col-md-8 offset-md-2">
+  <%= form_with model:@shoe_size, url:shoe_sizes_path, method: :post, local:true do |f| %>
+    <div class="form-group row">
+      <p class="col-md-3 pt-1 mb-0">サイズ記入</p>
+      <p><%= f.text_field :size %></p>
+      <p><%= f.submit '新規登録', class: "btn btn-success" %></p>
+    </div>
+
+    <table class='table'>
+      <thead class="bg-light">
+        <tr>
+          <th>サイズ</th>
+        </tr>
+      </thead>
+    </table>
+  <% end %>
+
+  <% @shoe_sizes.each do |shoe_sizes| %>
+    <div class="col-md-5 offset-md-1">
+      <div class="form-group">
+        <div class="form-group row">
+          <p class="col-md-9 pt-1 mb-0"><%= shoe_sizes.size %></p>
+          <%= link_to "編集する",  edit_shoe_size_path(shoe_sizes), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="text-center">
+    <ul class="pagination">
+      <%= paginate(@shoe_sizes) %>
+    </ul>
+  </div>
+</div>
