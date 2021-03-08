@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_135020) do
+ActiveRecord::Schema.define(version: 2021_03_08_010703) do
+
+  create_table "shoe_brands", force: :cascade do |t|
+    t.string "brand_name", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "shoe_images", force: :cascade do |t|
     t.integer "shoe_id"
@@ -21,19 +27,13 @@ ActiveRecord::Schema.define(version: 2021_03_07_135020) do
 
   create_table "shoes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "shoes_size_id", null: false
-    t.integer "shoes_brand_id", null: false
+    t.integer "shoe_size_id", null: false
+    t.integer "shoe_brand_id", null: false
     t.integer "tag_id"
     t.integer "comment_id"
     t.integer "favorite_id"
     t.text "description"
-    t.string "shoes_models"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "shoes_brands", force: :cascade do |t|
-    t.string "brand_name", null: false
+    t.string "shoe_model"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

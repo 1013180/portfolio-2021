@@ -1,7 +1,7 @@
-<% if @shoes_brand.errors.any? %>
+<% if @shoe_brand.errors.any? %>
   <div id="error_explanation">
     <ul>
-      <% @shoes_brand.errors.full_messages.each do |message| %>
+      <% @shoe_brand.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
@@ -13,7 +13,7 @@
 </div>
 </div>
 <div class="col-md-5 offset-md-3">
-<%= form_with model:@shoes_brand, method: :patch, local:true do |f| %>
+<%= form_with model:@shoe_brand, method: :patch, local:true do |f| %>
  <thead>
   <tr>
       <th>ジャンル名</th>
