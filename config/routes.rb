@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :shoe_brands, only: [:index, :create, :edit, :update]
   resources :shoe_sizes, only: [:index, :create, :edit, :update]
   resources :users, only: [:index, :edit, :show]
+  resources :favorites, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

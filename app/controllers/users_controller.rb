@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
   def show
-    @shoes = Shoe.all.page(params[:page]).per(10)
+    @user = User.find(params[:id])
+    @shoes = @user.shoes
+    @shoe = Shoe.new
   end
 
   def index
    @user = User.all
    @shoes = Shoe.all
+   @users = current_user
   end
 
   def edit
