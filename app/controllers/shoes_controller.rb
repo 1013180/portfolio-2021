@@ -9,8 +9,8 @@ class ShoesController < ApplicationController
 
   def create
     @shoe  = Shoe.new(shoe_params)
-    if @shoe.save
-    redirect_to new_shoe_path
+    if @shoe.save!
+    redirect_to shoe_path(@shoe)
     else
     render :new
     end
@@ -21,7 +21,7 @@ class ShoesController < ApplicationController
   end
 
   def show
-     @shoes = Shoe.find(params[:id])
+     @shoe = Shoe.find(params[:id])
   end
 
   def destroy
@@ -29,6 +29,6 @@ class ShoesController < ApplicationController
   private
 
   def shoe_params
-    params.require(:shoe).permit(:shoes_models, :description, shoe_images_images: [])
+    params.require(:shoe).permit(:shoes_models, :description, :shoe_model, :shoe_brand_id, :shoe_size_id, shoe_images_before_images:[], shoe_images_after_images:[])
   end
 end

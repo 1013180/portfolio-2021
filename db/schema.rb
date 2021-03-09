@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 2021_03_08_065431) do
 
   create_table "shoe_images", force: :cascade do |t|
     t.integer "shoe_id"
-    t.string "image_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "before_image_id"
+    t.string "after_image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "shoe_sizes", force: :cascade do |t|
