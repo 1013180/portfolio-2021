@@ -1,19 +1,49 @@
 <div class="row">
 <div class="col-md-7 offset-md-2">
- <h1 class="p-3 md-2 bg-light text-dark">商品一覧</h1>
+  <h1 class="p-3 md-2 bg-light text-dark">投稿靴一覧</h1>
+
 </div>
 <div class="col-md-1">
+<%= link_to new_shoe_path, method: :get do %>
+<i class="fas fa-plus-circle fa-3x"></i>
+<% end %>
 </div>
 </div>
 <div class="row">
 <div class="col-md-8 offset-md-2">
-<% @shoes.each do |shoes| %>
-  <%= attachment_image_tag shoes, :image %>
-  <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
-  <p>投稿日：<%= shoes.created_at.strftime('%Y/%m/%d') %></p>
-  <p>ショップ名：<%= post_image.shop_name %></p>
-  <p>説明：<%= post_image.caption %></p>
-  <p>ユーザーネーム：<%= post_image.user.name %></p>
+<table class='table'>
+ <thead>
+  <tr>
+    <th></th>
+    <th>投稿者</th>
+    <th>シューズブランド</th>
+    <th>シューズモデル・デザイン </th>
+    <th>シューズサイズ</th>
+  </tr>
+ </thead>
 </div>
 </div>
-<% end %>
+<% @shoes.each do |shoe| %>
+
+
+
+ <tr>
+    <th><%= shoe.id %></th>
+    <th>
+      　<%= shoe.id %>
+    </th>
+    <th><%= ShoeBrand.find(shoe.id).brand_name %></th>
+    <th>
+    <%= link_to shoe_path(shoe.id) do %>
+    <%= shoe.shoe_model %>
+    <% end %>
+    </th>
+    <th><%= ShoeSize.find(shoe.id).size %></th>
+ </tr>
+ <% end %>
+</table>
+<div class="text-center">
+ <ul class="pagination">
+  <%= paginate(@shoes) %>
+ </ul>
+</div>

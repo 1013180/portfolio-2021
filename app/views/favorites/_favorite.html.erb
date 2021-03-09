@@ -1,0 +1,13 @@
+              <% if shoe.favorited_by?(current_user) %>
+                <p>
+                    <%= link_to favorite_path(shoe), method: :delete, remote: true do %>
+                    ♥<%= shoe.favorites.count %> いいね
+                <% end %>
+                </p>
+                <% else %>
+                <p>
+                    <%= link_to favorites_path(shoe), method: :post, remote: true do %>
+                    ♡<%= shoe.favorites.count %> いいね
+                    <% end %>
+                </p>
+                <% end %>
