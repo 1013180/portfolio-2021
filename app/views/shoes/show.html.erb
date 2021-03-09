@@ -1,12 +1,51 @@
-<% if @shoes.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-      <% @shoes.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="col-md-2 offset-md-2">
+ <h1 class="p-3 md-2 bg-light text-dark">詳細</h1>
+</div>
+<div class="row">
+    <div class="col-md-3 offset-md-1">
+      <div class="form-group">
+      ＜BEFORE＞
+      <% if @shoe.shoe_images.present? %>
+        <% @shoe.shoe_images.each do |image| %>
+          <%= attachment_image_tag image, :before_image, :fill, 100, 100, fallback: "", class: "default_image" %>
+        <% end %>
+      <% else %>
+        画像はありません。
       <% end %>
-    </ul>
+
+
+      ＜AFTER＞
+      <% if @shoe.shoe_images.present? %>
+        <% @shoe.shoe_images.each do |image| %>
+          <%= attachment_image_tag image, :after_image, :fill, 100, 100, fallback: "", class: "default_image" %>
+        <% end %>
+      <% else %>
+        画像はありません。
+      <% end %>
+     </div>
+    </div>
   </div>
-<% end %>
-<div class="col-md-8 offset-md-2">
- <h1 class="p-3 md-2 bg-light text-dark">シューズ画像詳細</h1>
-  <%= attachment_image_tag(@book.user, :profile_image, :fill, 300, 300, fallback: "no-image-icon.jpg") %>
+
+  <div class="col-md-5 offset-md-1">
+  <div class="form-group">
+
+  <div class="form-group row">
+    <p class="col-md-3 pt-1 mb-0">シューズブランド</p>
+    <%= ShoeBrand.find(@shoe.id).brand_name %>
+  </div>
+
+  <div class="form-group row">
+    <p class="col-md-3 pt-1 mb-0">シューズモデル・デザイン</p>
+    <%= @shoe.shoe_model %>
+  </div>
+
+  <div class="form-group row">
+    <p class="col-md-3 pt-1 mb-0">シューズサイズ</p>
+    <%= ShoeSize.find(@shoe.id).size %>
+  </div>
+
+  <div class="form-group row">
+    <p class="col-md-3 pt-1 mb-0">コメント</p>
+    <%= @shoe.description %>
+  </div>
+

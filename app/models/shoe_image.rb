@@ -1,4 +1,5 @@
 class ShoeImage < ApplicationRecord
   belongs_to :shoe
-  attachment :image
+  attachment :before_image
+  attachment :after_image
 end

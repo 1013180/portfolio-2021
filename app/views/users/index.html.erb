@@ -1,0 +1,24 @@
+<div class="col-md-5 offset-md-2">
+  <h1 class="p-3 md-2 bg-light text-dark">User一覧</h1>
+</div>
+
+<div class="col-md-8 offset-md-1">
+<table class="table">
+ <table>
+  <thead>
+   <tr>
+    <th>UserName</th>
+    <th></th>
+   </tr>
+ </thead>
+
+ <% @user.each do |user| %>
+ <tbody>
+   <tr>
+    <td><%= user.name %></td>
+    <th><%= link_to "投稿を見る", user_path(user.id) %></th>
+   </tr>
+ </tbody>
+ <% end %>
+</table>
+</div>

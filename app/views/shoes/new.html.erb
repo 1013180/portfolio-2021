@@ -18,27 +18,29 @@
 
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">＜BEFORE＞</p>
-    <%= f.attachment_field :shoe_images_images, multiple: true %>
+    <%= f.attachment_field :shoe_images_before_images, multiple: true %>
   </div>
 
    <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">＜AFTER＞</p>
-    <%= f.attachment_field :shoe_images_images, multiple: true %>
+    <%= f.attachment_field :shoe_images_after_images, multiple: true %>
   </div>
 
-  <div class="form-group row">
-   <p class="col-md-3 pt-1 mb-0">シューズモデル・デザイン</p>
-   <%= f.text_field :shoes_model %>
-  </div>
 
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">シューズブランド</p>
-    <%= f.collection_select :shoe_brand_id, @shoe_brand , :id , :brand_name %>
+    <%= f.collection_select :shoe_brand_id, ShoeBrand.all, :id , :brand_name %>
   </div>
+
+   <div class="form-group row">
+   <p class="col-md-3 pt-1 mb-0">シューズモデル・デザイン</p>
+   <%= f.text_field :shoe_model %>
+  </div>
+
 
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">シューズサイズ</p>
-    <%= f.collection_select :shoe_size_id, @shoe_size, :id, :size %>
+    <%= f.collection_select :shoe_size_id, ShoeSize.all, :id, :size %>
   </div>
 
   <div class="form-group row">
