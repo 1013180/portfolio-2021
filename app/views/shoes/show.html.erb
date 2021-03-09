@@ -1,23 +1,23 @@
 <div class="col-md-2 offset-md-2">
- <h1 class="p-3 md-2 bg-light text-dark">詳細</h1>
+ <h1 class="p-3 md-2 bg-light text-dark">エイジング記録</h1>
 </div>
 <div class="row">
     <div class="col-md-3 offset-md-1">
       <div class="form-group">
-      ＜BEFORE＞
+      <h2>＜BEFORE＞</h2>
       <% if @shoe.shoe_images.present? %>
         <% @shoe.shoe_images.each do |image| %>
-          <%= attachment_image_tag image, :before_image, :fill, 100, 100, fallback: "", class: "default_image" %>
+         <%= attachment_image_tag image, :before_image, :fill, 100, 100, fallback: "", class: "default_image" %>
         <% end %>
       <% else %>
         画像はありません。
       <% end %>
 
 
-      ＜AFTER＞
-      <% if @shoe.shoe_images.present? %>
-        <% @shoe.shoe_images.each do |image| %>
-          <%= attachment_image_tag image, :after_image, :fill, 100, 100, fallback: "", class: "default_image" %>
+      <h2>＜AFTER＞</h2>
+      <% if @shoe.after_images.present? %>
+        <% @shoe.after_images.each do |image| %>
+         <%= attachment_image_tag image, :after_image, :fill, 100, 100, fallback: "", class: "default_image" %>
         <% end %>
       <% else %>
         画像はありません。
@@ -31,7 +31,7 @@
 
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">シューズブランド</p>
-    <%= ShoeBrand.find(@shoe.id).brand_name %>
+    <%= @shoe.shoe_brand.brand_name %>
   </div>
 
   <div class="form-group row">
@@ -41,7 +41,7 @@
 
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">シューズサイズ</p>
-    <%= ShoeSize.find(@shoe.id).size %>
+    <%= @shoe.shoe_size.size %>
   </div>
 
   <div class="form-group row">
@@ -49,3 +49,4 @@
     <%= @shoe.description %>
   </div>
 
+<%= render 'favorites/favorite', shoe: @shoe %>

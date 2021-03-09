@@ -23,18 +23,18 @@
 
  <tr>
     <th><%= shoe.id %></th>
-    <th><%= ShoeBrand.find(shoe.id).brand_name %></th>
+    <th><%= shoe.shoe_brand.brand_name %></th>
     <th>
     <%= link_to shoe_path(shoe.id) do %>
     <%= shoe.shoe_model %>
     <% end %>
     </th>
-    <th><%= ShoeSize.find(shoe.id).size %></th>
+    <th><%= shoe.shoe_size.size %></th>
  </tr>
  <% end %>
 </table>
-<div class="text-center">
- <ul class="pagination">
-  <%= paginate(@shoes) %>
- </ul>
-</div>
+<!--<div class="text-center">-->
+<!-- <ul class="pagination">-->
+<!--  <= paginate(@user) %>-->
+<!-- </ul>-->
+<!--</div>-->
