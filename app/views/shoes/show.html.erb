@@ -49,4 +49,9 @@
     <%= @shoe.description %>
   </div>
 
-<%= render 'favorites/favorite', shoe: @shoe %>
+  <%= render 'favorites/favorite', shoe: @shoe %>
+
+  <div id="comments_area">
+    <%= render 'comments/comment', shoe: @shoe, comment: @comment %>
+  </div>
+

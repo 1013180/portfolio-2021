@@ -23,6 +23,8 @@ class ShoesController < ApplicationController
 
   def show
      @shoe = Shoe.find(params[:id])
+     @comment = Comment.new
+     @comments = @shoe.comments.order(created_at: :desc)
   end
 
   def destroy

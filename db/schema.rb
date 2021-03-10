@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_115554) do
+ActiveRecord::Schema.define(version: 2021_03_10_064830) do
 
   create_table "after_images", force: :cascade do |t|
     t.string "after_image_id"
     t.integer "shoe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shoe_id"
+    t.text "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "favorites", force: :cascade do |t|
