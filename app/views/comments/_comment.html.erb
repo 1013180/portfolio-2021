@@ -1,0 +1,22 @@
+ <div class="comments">
+    <p>コメント件数：<%= shoe.comments.count %></p>
+    <% shoe.comments.each do |comment| %>
+      <table>
+        <tr>
+          <td><%= comment.user.name %></td>
+          <td><%= comment.comment %></td>
+          <% if comment.user == current_user %>
+            <div class="comment-delete">
+              <td><%= link_to "Destroy", shoe_comments_path(comment.shoe, comment), method: :delete, remote: true, class: "btn btn-sm btn-danger" %></td>
+            </div>
+          <% end %>
+        </tr>
+      </table>
+    <% end %>
+    <div class="new-comment">
+      <%= form_with(model:[shoe, comment] ) do |f| %>
+        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
+      <% end %>
+    </div>
+  </div>
