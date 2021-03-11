@@ -25,6 +25,7 @@ class ShoesController < ApplicationController
      @shoe = Shoe.find(params[:id])
      @comment = Comment.new
      @comments = @shoe.comments.order(created_at: :desc)
+     @favorite = @shoe.favorites.find_by(user_id: current_user.id)
   end
 
   def destroy

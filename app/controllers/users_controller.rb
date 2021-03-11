@@ -13,6 +13,9 @@ class UsersController < ApplicationController
 
   def edit
   end
+  
+  def search
+  end
 
   def user_params
    params.require(:user).permit(:name, :profile_image)
