@@ -48,8 +48,9 @@
     <p class="col-md-3 pt-1 mb-0">コメント</p>
     <%= @shoe.description %>
   </div>
-
-  <%= render 'favorites/favorite', shoe: @shoe %>
+  <div id="favorites_buttons_<%= @shoe.id %>">
+    <%= render 'favorites/favorite', shoe: @shoe, favorite: @favorite %>
+  </div>
 
   <div id="comments_area">
     <%= render 'comments/comment', shoe: @shoe, comment: @comment %>
