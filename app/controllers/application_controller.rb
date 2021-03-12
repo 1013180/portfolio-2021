@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
   devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
+  before_action :set_search
+
+  def set_search
+  @search = Shoe.ransack(params[:q]) #ransackの検索メソッド
+  end
 end
