@@ -18,7 +18,13 @@ class ShoesController < ApplicationController
   end
 
   def index
-    @shoes = Shoe.all.page(params[:page]).per(10)
+    if params[:q]
+     @search = Shoe.ransack(params[:q]) #ransackの検索メソッド
+     @shoes = @search.result(distinct: true).order(created_at: "DESC").includes(:user).page(params[:page]).per(5)
+     pp @shoes
+    else
+     @shoes = Shoe.all.page(params[:page]).per(10)
+    end
   end
 
   def show
@@ -28,9 +34,13 @@ class ShoesController < ApplicationController
      @favorite = @shoe.favorites.find_by(user_id: current_user.id)
   end
 
+
+
   def destroy
   end
   private
+
+
 
   def shoe_params
     params.require(:shoe).permit(:shoes_models, :description, :shoe_model, :shoe_brand_id, :shoe_size_id, shoe_images_before_images:[], after_images_after_images:[])
