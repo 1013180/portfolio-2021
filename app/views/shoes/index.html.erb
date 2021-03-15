@@ -14,7 +14,6 @@
 <table class='table'>
  <thead>
   <tr>
-    <th></th>
     <th>投稿者</th>
     <th>シューズブランド</th>
     <th>シューズモデル・デザイン </th>
@@ -28,15 +27,16 @@
 
 
  <tr>
-    <th><%= shoe.id %></th>
     <th>
-      　<%= shoe.id %>
+     <%= link_to user_path(shoe.user.id) do %>
+     <%= shoe.user.name %>
+     <% end %>
     </th>
     <th><%= shoe.shoe_brand.brand_name %></th>
     <th>
-    <%= link_to shoe_path(shoe.id) do %>
-    <%= shoe.shoe_model %>
-    <% end %>
+     <%= link_to shoe_path(shoe.id) do %>
+     <%= shoe.shoe_model %>
+     <% end %>
     </th>
     <th><%= shoe.shoe_size.size %></th>
  </tr>
