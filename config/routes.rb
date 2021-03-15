@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :shoes, only: [:new, :create, :index, :show, :destroy]
   resources :shoe_brands, only: [:index, :create, :edit, :update]
   resources :shoe_sizes, only: [:index, :create, :edit, :update]
-  resources :users, only: [:index, :edit, :show]
+  resources :users, only: [:index, :edit, :show, :update]
   resources :shoes do
   resources :favorites, only: [:create, :destroy]
   resources :comments, only: [:create, :destroy]

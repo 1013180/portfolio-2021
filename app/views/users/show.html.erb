@@ -1,11 +1,48 @@
-<div class="row">
-<div class="col-md-7 offset-md-2">
-  <h1 class="p-3 md-2 bg-light text-dark">投稿一覧</h1>
-  <!--<= current_user.last_name %>-->
-</div>
 
-<div class="row">
- <div class="col-md-8 offset-md-2">
+
+  <div class="row">
+    <div class="col-md-3 offset-md-1">
+    <h1 class="p-3 md-2 bg-light text-dark">マイページ</h1>
+       <%= form_with model:@user, local:true do |f| %>
+       <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
+       <% end %>
+     <table class='table'>
+      <tr>
+    	  <th>name</th>
+    	  <th><%= @user.name %></th>
+      </tr>
+      <tr>
+    	  <th>introduction</th>
+    	  <th><%= @user.introduction %></th>
+      </tr>
+      <tr>
+        <% user ||= current_user %>
+       <!--<div class="stats">-->
+    	  <!--<th>follows</th>-->
+    	  <!--<th><a href="<= users_show_follow_path(user) %>">-->
+       <!-- <strong id="following" class="stat">-->
+       <!--   <= user.followings.count %>-->
+       <!-- </strong></th>-->
+       <!--</tr>-->
+      <!--   <tr>-->
+    	 <!-- <th>followers</th>-->
+    	 <!-- <th><a href="<= users_show_follower_path(user) %>">-->
+      <!--    <strong id="followers" class="stat">-->
+      <!--    <= user.followers.count %>-->
+      <!--     </strong></th>-->
+      <!--   </div>-->
+      <!--<tr>-->
+      </tr>
+    </table>
+
+    <a>
+      <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+    </a>
+   </div>
+
+
+
+ <div class="col-md-6 offset-md-1">
   <table class='table'>
    <thead>
     <tr>
@@ -15,24 +52,26 @@
       <th>シューズサイズ</th>
     </tr>
   </thead>
- </div>
-</div>
+
 <% @shoes.each do |shoe| %>
 
 
 
- <tr>
-    <th><%= shoe.id %></th>
-    <th><%= shoe.shoe_brand.brand_name %></th>
-    <th>
-    <%= link_to shoe_path(shoe.id) do %>
-    <%= shoe.shoe_model %>
-    <% end %>
-    </th>
-    <th><%= shoe.shoe_size.size %></th>
- </tr>
- <% end %>
-</table>
+   <tr>
+      <th></th>
+      <th><%= shoe.shoe_brand.brand_name %></th>
+      <th>
+      <%= link_to shoe_path(shoe.id) do %>
+      <%= shoe.shoe_model %>
+      <% end %>
+      </th>
+      <th><%= shoe.shoe_size.size %></th>
+   </tr>
+   <% end %>
+  </table>
+  </div>
+  </div>
+ </div>
 <!--<div class="text-center">-->
 <!-- <ul class="pagination">-->
 <!--  <= paginate(@user) %>-->
