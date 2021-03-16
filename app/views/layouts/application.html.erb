@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script><
   </head>
 
     <body>
@@ -27,6 +29,9 @@
         </div>
       </li>
      <li>
+        <%= link_to '投稿一覧', shoes_path %>
+     </li>
+     <li>
         <%= link_to '投稿フォーム', new_shoe_path %>
       </li>
       <li>
@@ -42,11 +47,32 @@
       <li>
         <%= link_to "ログイン", new_user_session_path %>
       </li>
+       <li>
+        <%= link_to "About", home_about_path %>
+      </li>
        <% end %>
         </ul>
       </div>
      </nav>
     </header>
     <%= yield %>
+      <footer class="bg-white text-secondary pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+             <h6 class="text-secondary mt-2 mb-3">Link</h6>
+            <ul class="p-0 list-unstyled">
+              <li>
+               <a href="https://1111216843b342ed99b5e18e0763f564.vfs.cloud9.ap-northeast-1.amazonaws.com/" title="Home" class="fas fa-home">Home</a>
+              </li>
+              <li>
+                <a href="https://1111216843b342ed99b5e18e0763f564.vfs.cloud9.ap-northeast-1.amazonaws.com/home/about" class="fas fa-audio-description">About</a>
+              </li>
+          </div>
+        </div>
+      <div class="text-center">
+        <a class="text-body mt-2 mb-3">@2021 ShoesProud</a>
+      </div>
+    </footer>
   </body>
 </html>

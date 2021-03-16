@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-md-3 offset-md-1">
-    <h1 class="p-3 md-2 bg-light text-dark">マイページ</h1>
+    <h1 class="p-3 md-2 bg-light text-dark">User info</h1>
        <%= form_with model:@user, local:true do |f| %>
        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
        <% end %>
@@ -17,27 +17,29 @@
       </tr>
       <tr>
         <% user ||= current_user %>
-       <!--<div class="stats">-->
-    	  <!--<th>follows</th>-->
-    	  <!--<th><a href="<= users_show_follow_path(user) %>">-->
-       <!-- <strong id="following" class="stat">-->
-       <!--   <= user.followings.count %>-->
-       <!-- </strong></th>-->
-       <!--</tr>-->
-      <!--   <tr>-->
-    	 <!-- <th>followers</th>-->
-    	 <!-- <th><a href="<= users_show_follower_path(user) %>">-->
-      <!--    <strong id="followers" class="stat">-->
-      <!--    <= user.followers.count %>-->
-      <!--     </strong></th>-->
-      <!--   </div>-->
-      <!--<tr>-->
+      <div class="stats">
+    	  <th>follows</th>
+    	  <th>
+          <strong id="following" class="stat">
+          <%= user.followings.count %>
+          </strong>
+        </th>
       </tr>
-    </table>
+      <tr>
+    	  <th>followers</th>
+    	  <th>
+    	    <strong id="followers" class="stat">
+          <%= user.followers.count %>
+          </strong>
+        </th>
+      </tr>
+    </div>
+  </table>
+    
 
-    <a>
+<% if @user.id == current_user.id %>
       <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
-    </a>
+<% end %>
    </div>
 
 
