@@ -1,13 +1,13 @@
-<div class="col-md-2 offset-md-2">
- <h1 class="p-3 md-2 bg-light text-dark">エイジング記録</h1>
+<div class="col-md-8 offset-md-2">
+ <h1 class="p-3 md-2  text-dark">エイジング記録</h1>
 </div>
 <div class="row">
-    <div class="col-md-3 offset-md-1">
-      <div class="form-group">
+    <div class="col-md-10 offset-md-1">
+      <div class="text-center">
       <h2>＜BEFORE＞</h2>
       <% if @shoe.shoe_images.present? %>
         <% @shoe.shoe_images.each do |image| %>
-         <%= attachment_image_tag image, :before_image, :fill, 100, 100, fallback: "", class: "default_image" %>
+         <%= attachment_image_tag image, :before_image, :fill, 200, 200, fallback: "", class: "default_image" %>
         <% end %>
       <% else %>
         画像はありません。
@@ -17,17 +17,18 @@
       <h2>＜AFTER＞</h2>
       <% if @shoe.after_images.present? %>
         <% @shoe.after_images.each do |image| %>
-         <%= attachment_image_tag image, :after_image, :fill, 100, 100, fallback: "", class: "default_image" %>
+         <%= attachment_image_tag image, :after_image, :fill, 200, 200, fallback: "", class: "default_image" %>
         <% end %>
       <% else %>
         画像はありません。
       <% end %>
-     </div>
-    </div>
-  </div>
+       </div>
+ </div>
+</div>
 
-  <div class="col-md-5 offset-md-1">
-  <div class="form-group">
+
+  <div class="col-md-5 offset-md-4">
+  <div class="text-center">
 
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">シューズブランド</p>
@@ -55,4 +56,5 @@
   <div id="comments_area">
     <%= render 'comments/comment', shoe: @shoe, comment: @comment %>
   </div>
-
+ </div>
+</div>

@@ -14,7 +14,7 @@
       </table>
     <% end %>
     <div class="new-comment">
-      <%= form_with(model:[shoe, comment] ) do |f| %>
+      <%= form_with(model:[shoe, comment], url: shoe_comments_path(shoe.id)) do |f| %>
         <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
         <%= f.submit "送信する" %>
       <% end %>

@@ -1,8 +1,49 @@
-<div class="col-md-5 offset-md-2">
-  <h1 class="p-3 md-2 bg-light text-dark">User一覧</h1>
-</div>
+ <div class="row">
+    <div class="col-md-3 offset-md-1">
+    <h1 class="p-3 md-2 text-dark">User info</h1>
+       <%= form_with model:@users, local:true do |f| %>
+       <%= attachment_image_tag @users, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
+       <% end %>
+     <table class='table'>
+      <tr>
+    	  <th>name</th>
+    	  <th><%= @users.name %></th>
+      </tr>
+      <tr>
+    	  <th>introduction</th>
+    	  <th><%= @users.introduction %></th>
+      </tr>
+      <tr>
+        <% user ||= current_user %>
+      <div class="stats">
+    	  <th>follows</th>
+    	  <th>
+          <strong id="following" class="stat">
+          <%= user.followings.count %>
+          </strong>
+        </th>
+      </tr>
+      <tr>
+    	  <th>followers</th>
+    	  <th>
+    	    <strong id="followers" class="stat">
+          <%= user.followers.count %>
+          </strong>
+        </th>
+      </tr>
+    </div>
+  </table>
 
-<div class="col-md-8 offset-md-4">
+  <% if @users.id == current_user.id %>
+      <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+  <% end %>
+  </div>
+
+
+
+<div class="col-md-6 offset-md-1">
+  <h1 class="p-3 md-2 text-dark">Users</h1>
+
 <table class="table">
  <table>
   <thead>
