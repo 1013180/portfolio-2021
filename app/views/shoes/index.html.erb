@@ -1,6 +1,6 @@
 <div class="row">
 <div class="col-md-7 offset-md-2">
-  <h1 class="p-3 md-2 text-dark">投稿靴一覧</h1>
+  <h1 class="p-3 md-2 text-dark">PostsList</h1>
 
 </div>
 <div class="col-md-1">
@@ -15,12 +15,12 @@
  <thead>
   <tr>
     <th></th>
-    <th>投稿者</th>
-    <th>シューズブランド</th>
-    <th>シューズモデル・デザイン </th>
-    <th>シューズサイズ</th>
-    <th>いいね</th>
-    <th>コメント</th>
+    <th>name</th>
+    <th>Shoes_brand</th>
+    <th>Shoes_model(design) </th>
+    <th>Shoes_size</th>
+    <th>favorites</th>
+    <th>comments</th>
   </tr>
  </thead>
 </div>
@@ -44,9 +44,7 @@
     </th>
     <th><%= shoe.shoe_size.size %></th>
     <td>
-     <!--<id="favorites_buttons_<= shoe.id %>">-->
-     <!--<= render 'favorites/favorite', shoe: shoe %>-->
-     　<p>♡<%=  "#{shoe.favorites.count} いいね" %></p>
+     　♡<%=  "#{shoe.favorites.count} いいね" %>
     </td>
     <td><p><%=  "#{shoe.comments.count} コメント" %></p></td>
  </tr>

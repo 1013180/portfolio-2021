@@ -2,7 +2,11 @@
 
   <div class="row">
     <div class="col-md-3 offset-md-1">
-    <h1 class="p-3 md-2 text-dark">User info</h1>
+    <% if @user.id == current_user.id %>
+     <h1 class="p-3 md-2 text-dark">MyPege</h1>
+    <% else %>
+     <h1 class="p-3 md-2 text-dark">User info</h1>
+    <% end %>
        <%= form_with model:@user, local:true do |f| %>
        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
        <% end %>
@@ -37,14 +41,15 @@
   </table>
 
 
-<% if @user.id == current_user.id %>
+   <% if @user.id == current_user.id %>
       <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
-<% end %>
-   </div>
+   <% end %>
+    </div>
 
 
 
  <div class="col-md-6 offset-md-1">
+  <h1 class="p-3 md-2 text-dark"><%= @user.name %>'s_Shoes rack</h1>
   <table class='table'>
    <thead>
     <tr>

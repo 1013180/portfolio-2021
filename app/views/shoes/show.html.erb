@@ -1,10 +1,10 @@
 <div class="col-md-8 offset-md-2">
- <h1 class="p-3 md-2  text-dark">エイジング記録</h1>
+ <h1 class="p-3 md-2  text-dark">Aging Record</h1>
 </div>
 <div class="row">
     <div class="col-md-10 offset-md-1">
       <div class="text-center">
-      <h2>＜BEFORE＞</h2>
+      <h2>【BEFORE】</h2>
       <% if @shoe.shoe_images.present? %>
         <% @shoe.shoe_images.each do |image| %>
          <%= attachment_image_tag image, :before_image, :fill, 200, 200, fallback: "", class: "default_image" %>
@@ -14,7 +14,7 @@
       <% end %>
 
 
-      <h2>＜AFTER＞</h2>
+      <h2>【AFTER】</h2>
       <% if @shoe.after_images.present? %>
         <% @shoe.after_images.each do |image| %>
          <%= attachment_image_tag image, :after_image, :fill, 200, 200, fallback: "", class: "default_image" %>
@@ -27,34 +27,63 @@
 </div>
 
 
-  <div class="col-md-5 offset-md-4">
-  <div class="text-center">
-
-  <div class="form-group row">
-    <p class="col-md-3 pt-1 mb-0">シューズブランド</p>
-    <%= @shoe.shoe_brand.brand_name %>
+<div class="col-md-5 offset-md-4">
+ <div class="text-center">
+    <table>
+      <tr>
+       <th>
+          <div class="form-group row">
+            <p class="col-md-3 pt-1 mb-0">Shoes_brand</p>
+       </th>
+       <th>
+            <%= @shoe.shoe_brand.brand_name %>
+          </div>
+       </th>
+      </tr>
+      <tr>
+       <th>
+          <div class="form-group row">
+            <p class="col-md-3 pt-1 mb-0">Shoes_model(design)</p>
+        </th>
+        <th>
+            <%= @shoe.shoe_model %>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <div class="form-group row">
+            <p class="col-md-3 pt-1 mb-0">Shoes_size</p>
+        </th>
+        <th>
+            <%= @shoe.shoe_size.size %>
+          </div>
+        </th>
+      </tr>
+      <tr>
+       <th>
+          <div class="form-group row">
+            <p class="col-md-3 pt-1 mb-0">introduction</p>
+        </th>
+        <th>
+            <%= @shoe.description %>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <div id="favorites_buttons_<%= @shoe.id %>">
+            <%= render 'favorites/favorite', shoe: @shoe, favorite: @favorite %>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <div id="comments_area">
+            <%= render 'comments/comment', shoe: @shoe, comment: @comment %>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
-
-  <div class="form-group row">
-    <p class="col-md-3 pt-1 mb-0">シューズモデル・デザイン</p>
-    <%= @shoe.shoe_model %>
-  </div>
-
-  <div class="form-group row">
-    <p class="col-md-3 pt-1 mb-0">シューズサイズ</p>
-    <%= @shoe.shoe_size.size %>
-  </div>
-
-  <div class="form-group row">
-    <p class="col-md-3 pt-1 mb-0">コメント</p>
-    <%= @shoe.description %>
-  </div>
-  <div id="favorites_buttons_<%= @shoe.id %>">
-    <%= render 'favorites/favorite', shoe: @shoe, favorite: @favorite %>
-  </div>
-
-  <div id="comments_area">
-    <%= render 'comments/comment', shoe: @shoe, comment: @comment %>
-  </div>
- </div>
 </div>
