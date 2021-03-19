@@ -23,7 +23,7 @@ class ShoesController < ApplicationController
      @shoes = @search.result(distinct: true).order(created_at: "DESC").includes(:user).page(params[:page]).per(5)
      pp @shoes
     else
-     @shoes = Shoe.all.page(params[:page]).per(10)
+     @shoes = Shoe.all.page(params[:page]).per(5)
     end
   end
 
