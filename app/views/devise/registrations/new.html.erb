@@ -32,7 +32,9 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+<div class="actions">
+ <%= link_to 'Guest_Log in（閲覧用）', homes_guest_sign_in_path, method: :post, class: 'btn btn-info' %>
+</div>
  </div>
 </div>

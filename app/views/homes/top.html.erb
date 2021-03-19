@@ -17,8 +17,9 @@
       		<div class="swiper-slide"><%= image_tag 'shoes3.JPG' %></div>
       	</div>
       </div>
-      <%= link_to "sign up", new_user_registration_path, class: 'btn btn-secondary' %>
-      <%= link_to "login", new_user_session_path, class: 'btn btn-secondary' %>
+      <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-secondary' %>
+      <%= link_to "Login", new_user_session_path, class: 'btn btn-secondary' %>
+      <%= link_to 'Guest_Log in（閲覧用）', homes_guest_sign_in_path, method: :post, class: 'btn btn-info' %>
    </div>
   </div>
 </div>

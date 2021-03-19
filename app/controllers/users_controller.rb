@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index
-   @user = User.all
+   @user = User.all.page(params[:page]).per(5)
    @shoes = Shoe.all
    @users = current_user
   end

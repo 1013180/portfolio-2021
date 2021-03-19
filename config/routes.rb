@@ -21,5 +21,6 @@ Rails.application.routes.draw do
       get :search
     end
   end
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
