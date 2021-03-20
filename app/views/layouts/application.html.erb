@@ -18,7 +18,10 @@
           <%= link_to "ShoesProud", root_path, class: 'navbar-brand text-white' %><i class="fas fa-shoe-prints text-white"></i>
           <ul class="navbar-nav ml-auto">
      <% if user_signed_in? %>
-      <li>
+     <li>
+        <%= link_to 'calenda', plans_path(current_user.id),class: 'fas fa-calendar-week nav-link text-light' %>
+     </li>
+     <li>
         <%= link_to 'MyPage', user_path(current_user.id),class: 'fas fa-user-tie nav-link text-light' %>
      </li>
      <li>

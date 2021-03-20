@@ -1,12 +1,11 @@
 class CommentsController < ApplicationController
-    def create
+  def create
     @shoe = Shoe.find(params[:shoe_id])
     @comment  = @shoe.comments.new(comment_params)
     @comment.user_id = current_user.id
     @comment.save
     @new_comment = Comment.new
-    # redirect_to request.referer
-    end
+  end
 
 
 
@@ -15,7 +14,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     @new_comment = Comment.new
-    # redirect_to request.referer
   end
 
    private

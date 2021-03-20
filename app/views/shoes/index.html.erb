@@ -47,6 +47,10 @@
      　♡<%=  "#{shoe.favorites.count} いいね" %>
     </td>
     <td><p><%=  "#{shoe.comments.count} コメント" %></p></td>
+    <% if shoe.user==current_user %>
+     <td><%= link_to "Edit", edit_shoe_path(shoe.id), class: "btn btn-sm btn-success" %></td>
+     <td><%= link_to 'Destroy', shoe_path(shoe), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_shoe_#{shoe.id}"%></td>
+    <% end %>
  </tr>
  <% end %>
 </table>

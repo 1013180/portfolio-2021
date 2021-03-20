@@ -37,10 +37,29 @@ class ShoesController < ApplicationController
 
 
   def destroy
+    @shoe = Shoe.find(params[:id])
+    @shoe.destroy
+    redirect_to shoes_path
   end
+
+  def edit
+    @shoe = Shoe.find(params[:id])
+    @shoe_brand = ShoeBrand.all
+    @shoe_size = ShoeSize.all
+  end
+
+
+
+  def update
+    @shoe = Shoe.find(params[:id])
+    if @shoe.update(shoe_params)
+      redirect_to shoe_path(@shoe), notice: "You have updated book successfully."
+    else
+      render "edit"
+    end
+  end
+
   private
-
-
 
   def shoe_params
     params.require(:shoe).permit(:shoes_models, :description, :shoe_model, :shoe_brand_id, :shoe_size_id, shoe_images_before_images:[], after_images_after_images:[])

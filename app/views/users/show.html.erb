@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-3 offset-md-1">
     <% if @user.id == current_user.id %>
-     <h1 class="p-3 md-2 text-dark">MyPege</h1>
+     <h1 class="p-3 md-2 text-dark">MyPage</h1>
     <% else %>
      <h1 class="p-3 md-2 text-dark">User info</h1>
     <% end %>
@@ -42,7 +42,8 @@
 
 
    <% if @user.id == current_user.id %>
-      <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+      <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog text-primary edit_user_#{user.id}" %>
+      <%= link_to '予定の追加・確認', plans_path(current_user.id),class: 'btn btn-outline-secondary btn-block fas fa-calendar-week nav-link text-primary' %>
    <% end %>
     </div>
 
