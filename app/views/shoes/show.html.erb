@@ -84,6 +84,21 @@
           </div>
         </td>
       </tr>
+      <tr>
+        <% if @shoe.user==current_user %>
+          <td>
+            <div class="mt-5">
+              <%= link_to "投稿を編集する", edit_shoe_path(@shoe.id), class: "btn btn-sm btn-success" %>
+            </div>
+          </td>
+          <td>
+            <div class="mt-5">
+              <%= link_to '投稿を削除する', shoe_path(@shoe), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_shoe_#{@shoe.id}"%>
+            </div>
+          </td>
+        <% end %>
+        </div>
+     </tr>
     </table>
   </div>
 </div>

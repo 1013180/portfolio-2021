@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # root 'shoes#index'
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
-  resources :shoes, only: [:new, :create, :index, :show, :destroy]
+  root to: 'plans#index'
+  resources :plans
+  resources :shoes, only: [:new, :create, :index, :show, :destroy, :edit, :update]
   resources :shoe_brands, only: [:index, :create, :edit, :update]
   resources :shoe_sizes, only: [:index, :create, :edit, :update]
   resources :users, only: [:index, :edit, :show, :update] do

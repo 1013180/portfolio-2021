@@ -1,9 +1,9 @@
  <div class="row">
-    <div class="col-md-3 offset-md-1">
+   <div class="col-md-3 offset-md-1">
     <h1 class="p-3 md-2 text-dark">User info</h1>
-       <%= form_with model:@users, local:true do |f| %>
-       <%= attachment_image_tag @users, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
-       <% end %>
+     <%= form_with model:@users, local:true do |f| %>
+      <%= attachment_image_tag @users, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
+     <% end %>
      <table class='table'>
       <tr>
     	  <th>name</th>
@@ -14,7 +14,7 @@
     	  <th><%= @users.introduction %></th>
       </tr>
       <tr>
-        <% user ||= current_user %>
+      <% user ||= current_user %>
       <div class="stats">
     	  <th>follows</th>
     	  <th>
@@ -78,8 +78,9 @@
  <% end %>
 </table>
 </div>
-<div class="text-center">
- <ul class="pagination">
-  <%= paginate(@user) %>
- </ul>
+ <div class="text-center">
+  <ul class="pagination">
+   <%= paginate(@user) %>
+  </ul>
+ </div>
 </div>

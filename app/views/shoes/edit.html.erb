@@ -8,13 +8,13 @@
   </div>
 <% end %>
 <div class="col-md-8 offset-md-2">
- <h1 class="p-3 md-2 text-dark">NewPost</h1>
+ <h1 class="p-3 md-2 text-dark">Editing Post</h1>
 </div>
 <div class="row">
   <div class="col-md-8 offset-md-2">
     <div class="form-group">
 
-<%= form_with model: @shoe, url: shoes_path, method: :post, local:true do |f| %>
+<%= form_with model: @shoe, url: shoe_path(@shoe), method: :patch, local:true do |f| %>
 
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">＜Before_Image＞</p>
@@ -29,7 +29,7 @@
 
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">Shoes_brand</p>
-    <%= f.collection_select :shoe_brand_id, ShoeBrand.all, :id , :brand_name %>
+    <%= f.collection_select :shoe_brand_id, @shoe_brand.all, :id , :brand_name %>
   </div>
 
    <div class="form-group row">
@@ -40,7 +40,7 @@
 
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">Shoes_size</p>
-    <%= f.collection_select :shoe_size_id, ShoeSize.all, :id, :size %>
+    <%= f.collection_select :shoe_size_id, @shoe_size, :id, :size %>
   </div>
 
   <div class="form-group row">
@@ -49,6 +49,6 @@
   </div>
 
 
- <%= f.submit '新規登録', class: "btn btn-success" %>
+ <%= f.submit '変更を保存', class: "btn btn-success" %>
 
  <% end %>
