@@ -8,7 +8,10 @@ class Shoe < ApplicationRecord
   accepts_attachments_for :after_images, attachment: :after_image
   belongs_to :shoe_brand, optional: true
   belongs_to :shoe_size, optional: true
-
+  validates :shoe_model, length: { maximum: 50, minimum: 2 }, uniqueness: true, presence: true
+  validates :description, length: { maximum: 200 }
+  validates :shoe_images, presence: true
+  validates :after_images, presence: true
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

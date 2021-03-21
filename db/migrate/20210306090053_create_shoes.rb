@@ -7,6 +7,8 @@ class CreateShoes < ActiveRecord::Migration[5.2]
       t.integer :tag_id
       t.integer :comment_id
       t.integer :favorite_id
+      t.integer :after_image_id
+      t.integer :shoe_image_id
       t.text :description
       t.string :shoe_model
       t.timestamp :created_at

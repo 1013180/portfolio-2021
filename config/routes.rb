@@ -5,20 +5,20 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
   root to: 'plans#index'
   resources :plans
-  resources :shoes, only: [:new, :create, :index, :show, :destroy, :edit, :update]
-  resources :shoe_brands, only: [:index, :create, :edit, :update]
-  resources :shoe_sizes, only: [:index, :create, :edit, :update]
-  resources :users, only: [:index, :edit, :show, :update] do
-     	resource :relationships, only: [:create, :destroy]
-  	get 'followings' => 'relationships#followings', as: 'followings'
-  	get 'followers' => 'relationships#followers', as: 'followers'
+  resources :shoes, only: %i[new create index show destroy edit update]
+  resources :shoe_brands, only: %i[index create edit update]
+  resources :shoe_sizes, only: %i[index create edit update]
+  resources :users, only: %i[index edit show update] do
+    resource :relationships, only: %i[create destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
   end
   resources :shoes do
-  resources :favorites, only: [:create, :destroy]
-  resources :comments, only: [:create, :destroy]
+    resources :favorites, only: %i[create destroy]
+    resources :comments, only: %i[create destroy]
   end
 
-    resources :shoes do
+  resources :shoes do
     collection do
       get :search
     end

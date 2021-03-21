@@ -1,5 +1,4 @@
 class PlansController < ApplicationController
-
   def index
     @plans = Plan.where(user_id: current_user)
   end
@@ -13,12 +12,12 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan  = Plan.new(plan_parameter)
+    @plan = Plan.new(plan_parameter)
     @plan.user_id = current_user.id
     if @plan.save
-    redirect_to plan_path(@plan)
+      redirect_to plan_path(@plan)
     else
-    render :new
+      render :new
     end
     # Plan.create(plan_parameter)
     # redirect_to plans_path
@@ -27,7 +26,7 @@ class PlansController < ApplicationController
   def destroy
     @plan = Plan.find(params[:id])
     @plan.destroy
-    redirect_to plans_path, notice:"削除しました"
+    redirect_to plans_path, notice: '削除しました'
   end
 
   def edit
@@ -37,7 +36,7 @@ class PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
     if @plan.update(plan_parameter)
-      redirect_to plans_path, notice: "編集しました"
+      redirect_to plans_path, notice: '編集しました'
     else
       render 'edit'
     end

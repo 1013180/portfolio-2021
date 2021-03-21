@@ -42,5 +42,37 @@
 }
 
 .swiper-slide:nth-child(4n+4) {
-	background-color: #BEDAE5;
+	background-color: #FFFFFF;
+}
+
+.about-img2 {
+  background-image: url("shoes_about4.JPG");
+  background-size: cover;
+  background-position: center;
+  width: 400px;
+  height: 300px;
+}
+
+.about-img3 {
+  background-image: url("shoes_about2.JPG");
+  background-size: cover;
+  background-position: center;
+  width: 400px;
+  height: 300px;
+}
+
+.about-img4 {
+  background-image: url("shoes2.JPG");
+  background-size: cover;
+  background-position: center;
+  width: 400px;
+  height: 300px;
+}
+
+.about-img5 {
+  background-image: url("shoes_about3.JPG");
+  background-size: cover;
+  background-position: center;
+  width: 400px;
+  height: 300px;
 }
