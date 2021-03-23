@@ -1,54 +1,52 @@
 <% if @shoe.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-      <% @shoe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+<div id="error_explanation">
+  <ul>
+    <% @shoe.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
 <div class="col-md-8 offset-md-2">
- <h1 class="p-3 md-2 text-dark">Editing Post</h1>
+  <h1 class="p-3 md-2 text-dark">Editing Post</h1>
 </div>
 <div class="row">
   <div class="col-md-8 offset-md-2">
     <div class="form-group">
+      <%= form_with model: @shoe, url: shoe_path(@shoe), method: :patch, local:true do |f| %>
 
-<%= form_with model: @shoe, url: shoe_path(@shoe), method: :patch, local:true do |f| %>
+      <div class="form-group row">
+        <p class="col-md-3 pt-1 mb-0">＜Before_Image＞</p>
+        <%= f.attachment_field :shoe_images_before_images, multiple: true %>
+      </div>
 
-  <div class="form-group row">
-    <p class="col-md-3 pt-1 mb-0">＜Before_Image＞</p>
-    <%= f.attachment_field :shoe_images_before_images, multiple: true %>
+      <div class="form-group row">
+        <p class="col-md-3 pt-1 mb-0">＜After_Image＞</p>
+        <%= f.attachment_field :after_images_after_images, multiple: true %>
+      </div>
+
+      <div class="form-group row">
+        <p class="col-md-3 pt-1 mb-0">Shoes_brand</p>
+        <%= f.collection_select :shoe_brand_id, @shoe_brand.all, :id , :brand_name %>
+      </div>
+
+      <div class="form-group row">
+        <p class="col-md-3 pt-1 mb-0">Shoes_model(design)</p>
+        <%= f.text_field :shoe_model %>
+      </div>
+
+      <div class="form-group row">
+        <p class="col-md-3 pt-1 mb-0">Shoes_size</p>
+        <%= f.collection_select :shoe_size_id, @shoe_size, :id, :size %>
+      </div>
+
+      <div class="form-group row">
+        <p class="col-md-3 pt-1 mb-0">introduction</p>
+        <%= f.text_area :description, :size=>"25x5" %>
+      </div>
+
+      <%= f.submit '変更を保存', class: "btn btn-success" %>
+      <% end %>
+    </div>
   </div>
-
-   <div class="form-group row">
-    <p class="col-md-3 pt-1 mb-0">＜After_Image＞</p>
-    <%= f.attachment_field :after_images_after_images, multiple: true %>
-  </div>
-
-
-  <div class="form-group row">
-    <p class="col-md-3 pt-1 mb-0">Shoes_brand</p>
-    <%= f.collection_select :shoe_brand_id, @shoe_brand.all, :id , :brand_name %>
-  </div>
-
-   <div class="form-group row">
-   <p class="col-md-3 pt-1 mb-0">Shoes_model(design)</p>
-   <%= f.text_field :shoe_model %>
-  </div>
-
-
-  <div class="form-group row">
-    <p class="col-md-3 pt-1 mb-0">Shoes_size</p>
-    <%= f.collection_select :shoe_size_id, @shoe_size, :id, :size %>
-  </div>
-
-  <div class="form-group row">
-   <p class="col-md-3 pt-1 mb-0">introduction</p>
-   <%= f.text_area :description, :size=>"25x5" %>
-  </div>
-
-
- <%= f.submit '変更を保存', class: "btn btn-success" %>
-
- <% end %>
+</div>

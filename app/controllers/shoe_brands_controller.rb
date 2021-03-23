@@ -1,7 +1,7 @@
 # class ShoesBrandsController < ApplicationController
 class ShoeBrandsController < ApplicationController
   def index
-    @shoe_brands = ShoeBrand.all.page(params[:page]).per(10)
+    @shoe_brands = ShoeBrand.all.order("id ASC")
     @shoe_brand = ShoeBrand.new
   end
 

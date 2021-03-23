@@ -35,7 +35,7 @@
   </table>
 
   <% if @users.id == current_user.id %>
-      <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+      <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog text-primary edit_user_#{user.id}" %>
   <% end %>
   </div>
 
@@ -77,10 +77,8 @@
  </tbody>
  <% end %>
 </table>
-</div>
- <div class="text-center">
-  <ul class="pagination">
+ <div class="paginate">
    <%= paginate(@user) %>
-  </ul>
+ </div>
  </div>
 </div>

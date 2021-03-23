@@ -1,87 +1,104 @@
+<% if @user.id == current_user.id %>
 
+<% if @plans.exists? %>
+<div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+        <h4 class="p-3 md-2 text-dark">Today's_Plan</h4>
+         <table class='table'>
+            <thead>
+                <tr>
+                    <th>Strat_Time</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <% @plans.each do |plan| %>
+                <tr>
+                    <th><%= plan.start_time.strftime('%H:%M') %></th>
+                    <th><%= plan.title %></th>
+                </tr>
+            <% end %>
+         </table>
+    </div>
+</div>
+<% end %>
+<% end %>
 
-  <div class="row">
+<div class="row">
     <div class="col-md-3 offset-md-1">
-    <% if @user.id == current_user.id %>
-     <h1 class="p-3 md-2 text-dark">MyPage</h1>
-    <% else %>
-     <h1 class="p-3 md-2 text-dark">User info</h1>
-    <% end %>
-       <%= form_with model:@user, local:true do |f| %>
-       <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
-       <% end %>
-     <table class='table'>
-      <tr>
-    	  <th>name</th>
-    	  <th><%= @user.name %></th>
-      </tr>
-      <tr>
-    	  <th>introduction</th>
-    	  <th><%= @user.introduction %></th>
-      </tr>
-      <tr>
-        <% user ||= current_user %>
-      <div class="stats">
-    	  <th>follows</th>
-    	  <th>
-          <strong id="following" class="stat">
-          <%= user.followings.count %>
-          </strong>
-        </th>
-      </tr>
-      <tr>
-    	  <th>followers</th>
-    	  <th>
-    	    <strong id="followers" class="stat">
-          <%= user.followers.count %>
-          </strong>
-        </th>
-      </tr>
-    </div>
-  </table>
-
-
-   <% if @user.id == current_user.id %>
-      <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog text-primary edit_user_#{user.id}" %>
-      <%= link_to '予定の追加・確認', plans_path(current_user.id),class: 'btn btn-outline-secondary btn-block fas fa-calendar-week nav-link text-primary' %>
-   <% end %>
+        <% if @user.id == current_user.id %>
+        <h1 class="p-3 md-2 text-dark">MyPage</h1>
+        <% else %>
+        <h1 class="p-3 md-2 text-dark">User info</h1>
+        <% end %>
+        <%= form_with model:@user, local:true do |f| %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
+        <% end %>
+        <table class='table'>
+            <tr>
+                <th>name</th>
+                <th><%= @user.name %></th>
+            </tr>
+            <tr>
+                <th>introduction</th>
+                <th><%= @user.introduction %></th>
+            </tr>
+            <tr>
+                <% user ||= current_user %>
+                <div class="stats">
+                    <th>follows</th>
+                    <th>
+                        <strong id="following" class="stat">
+                            <%= user.followings.count %>
+                        </strong>
+                    </th>
+                </div>
+            </tr>
+            <tr>
+                <th>followers</th>
+                <th>
+                    <strong id="followers" class="stat">
+                        <%= user.followers.count %>
+                    </strong>
+                </th>
+            </tr>
+        </table>
+        <% if @user.id == current_user.id %>
+        <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog text-primary edit_user_#{user.id}" %>
+        <%= link_to '予定の追加・確認', plans_path(current_user.id),class: 'btn btn-outline-secondary btn-block fas fa-calendar-week nav-link text-primary' %>
+        <% end %>
     </div>
 
 
 
- <div class="col-md-6 offset-md-1">
-  <h1 class="p-3 md-2 text-dark"><%= @user.name %>'s_Shoes rack</h1>
-  <table class='table'>
-   <thead>
-    <tr>
-      <th></th>
-      <th>シューズブランド</th>
-      <th>シューズモデル・デザイン </th>
-      <th>シューズサイズ</th>
-    </tr>
-  </thead>
+    <div class="col-md-6 offset-md-1">
+        <h1 class="p-3 md-2 text-dark"><%= @user.name %>'s_Shoes rack</h1>
+        <table class='table'>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>シューズブランド</th>
+                    <th>シューズモデル・デザイン </th>
+                    <th>シューズサイズ</th>
+                </tr>
+            </thead>
 
-<% @shoes.each do |shoe| %>
+            <% @shoes.each do |shoe| %>
 
-
-
-   <tr>
-      <th></th>
-      <th><%= shoe.shoe_brand.brand_name %></th>
-      <th>
-      <%= link_to shoe_path(shoe.id) do %>
-      <%= shoe.shoe_model %>
-      <% end %>
-      </th>
-      <th><%= shoe.shoe_size.size %></th>
-   </tr>
-   <% end %>
-  </table>
-  </div>
-  </div>
+                <tr>
+                    <th></th>
+                    <th><%= shoe.shoe_brand.brand_name %></th>
+                    <th>
+                        <%= link_to shoe_path(shoe.id) do %>
+                        <%= shoe.shoe_model %>
+                        <% end %>
+                    </th>
+                    <th><%= shoe.shoe_size.size %></th>
+                </tr>
+            <% end %>
+        </table>
+    <div class="paginate">
+        <%= paginate(@shoes) %>
+    </div>
+    </div>
  </div>
-<!--<div class="text-center">-->
-<!-- <ul class="pagination">-->
-<!--  <= paginate(@user) %>-->
-<!-- </ul>-->
-<!--</div>-->
+

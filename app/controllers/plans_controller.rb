@@ -9,6 +9,7 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
+    # @plans = Plan.all.page(params[:page]).per(5)
   end
 
   def create
@@ -19,8 +20,6 @@ class PlansController < ApplicationController
     else
       render :new
     end
-    # Plan.create(plan_parameter)
-    # redirect_to plans_path
   end
 
   def destroy
