@@ -3,7 +3,7 @@ class ShoesController < ApplicationController
     # byebug
     @shoe = Shoe.new
     @shoe.shoe_images.build
-    @shoe_brand = ShoeBrand.all
+    @shoe_brand = ShoeBrand.all.order("brand_name ASC")
     @shoe_size = ShoeSize.all
   end
 
@@ -19,7 +19,7 @@ class ShoesController < ApplicationController
 
   def index
     if params[:q]
-      @search = Shoe.ransack(params[:q]) # ransackの検索メソッド
+      @search = Shoe.ransack(params[:q]) 
       @shoes = @search.result(distinct: true).order(created_at: 'DESC').includes(:user).page(params[:page]).per(5)
       pp @shoes
     else

@@ -8,18 +8,18 @@
   </div>
 <% end %>
 <div class="row">
-<div class="col-md-5 offset-md-3">
- <h1 class="p-3 md-2 bg-light text-dark">ブランド名編集</h1>
+  <div class="col-md-5 offset-md-3">
+    <h1 class="p-3 md-2 bg-light text-dark">ブランド名編集</h1>
+  </div>
 </div>
-</div>
 <div class="col-md-5 offset-md-3">
-<%= form_with model:@shoe_brand, method: :patch, local:true do |f| %>
- <thead>
-  <tr>
+  <%= form_with model:@shoe_brand, method: :patch, local:true do |f| %>
+  <thead>
+    <tr>
       <th>ジャンル名</th>
       <th><%= f.text_field :brand_name %></th>
       <th><%= f.submit '変更を保存', class: "btn btn-success"  %></th>
-  </tr>
- </thead>
+    </tr>
+  </thead>
+  <% end %>
 </div>
-<% end %>

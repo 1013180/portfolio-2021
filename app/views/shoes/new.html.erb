@@ -29,7 +29,7 @@
 
   <div class="form-group row">
     <p class="col-md-3 pt-1 mb-0">Shoes_brand</p>
-    <%= f.collection_select :shoe_brand_id, ShoeBrand.all, :id , :brand_name %>
+    <%= f.collection_select :shoe_brand_id, ShoeBrand.all.order("brand_name ASC"), :id , :brand_name %>
   </div>
 
    <div class="form-group row">

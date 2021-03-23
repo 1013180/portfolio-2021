@@ -1,13 +1,13 @@
 <div class="col-md-8 offset-md-2">
- <h1 class="p-3 md-2  text-dark">Aging Record</h1>
+  <h1 class="p-3 md-2  text-dark">Aging Record</h1>
 </div>
 <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <div class="text-center">
+  <div class="col-md-10 offset-md-1">
+    <div class="text-center">
       <h2>【BEFORE】</h2>
       <% if @shoe.shoe_images.present? %>
         <% @shoe.shoe_images.each do |image| %>
-         <%= attachment_image_tag image, :before_image, :fill, 200, 200, fallback: "", class: "default_image" %>
+        <%= attachment_image_tag image, :before_image, :fill, 200, 200, fallback: "", class: "default_image" %>
         <% end %>
       <% else %>
         画像はありません。
@@ -23,12 +23,12 @@
         画像はありません。
       <% end %>
        </div>
- </div>
-</div>
+ 　　</div>
+　</div>
 
 
-<div class="col-md-5 offset-md-4">
- <div class="text-center">
+ <div class="col-md-5 offset-md-4">
+   <div class="text-center">
     <table>
       <tr>
        <th>
@@ -100,5 +100,5 @@
         </div>
      </tr>
     </table>
-  </div>
+   </div>
 </div>
