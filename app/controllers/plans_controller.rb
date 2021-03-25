@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   def index
-    @plans = Plan.where(user_id: current_user)
+    @plans = Plan.where(user_id: current_user).page(params[:page]).per(5)
   end
 
   def new
@@ -9,7 +9,6 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
-    # @plans = Plan.all.page(params[:page]).per(5)
   end
 
   def create
