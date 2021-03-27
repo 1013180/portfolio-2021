@@ -76,8 +76,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_102545) do
     t.integer "tag_id"
     t.integer "comment_id"
     t.integer "favorite_id"
-    t.integer "after_image_id"
-    t.integer "shoe_image_id"
     t.text "description"
     t.string "shoe_model"
     t.datetime "created_at"

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 describe 'Shoeモデルのテスト' do
@@ -9,7 +7,6 @@ describe 'Shoeモデルのテスト' do
   let(:shoe_image) { build(:shoe_image) }
   let(:after_image) { build(:after_image) }
 
-  # let!(:shoe) { create(:shoe_with_image, user: user, shoe_brand: shoe_brand, shoe_size: shoe_size) }
 
   it "有効な投稿内容の場合は保存されるか" do
     shoe = build(:shoe, user: user, shoe_brand: shoe_brand, shoe_size: shoe_size)
