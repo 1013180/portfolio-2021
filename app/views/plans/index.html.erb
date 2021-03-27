@@ -25,11 +25,11 @@
     </tbody>
   </table>
 
-  <!--<div class="text-center">-->
-  <!--  <ul class="pagination">-->
-  <!--    <= paginate(@plans) %>-->
-  <!--  </ul>-->
-  <!--</div>-->
+
+  <div class="pagination">
+    <%= paginate(@plans) %>
+  </div>
+
 
   <br>
     <%= link_to '予定を追加', new_plan_path, class: "btn btn-primary" %>

@@ -79,5 +79,12 @@ gem 'rubocop-rails', require: false
 
 gem 'dotenv-rails'
 group :production do
-  gem 'mysql2'
+gem 'mysql2'
+end
+
+group :test do
+  gem 'capybara', '>= 2.15'
+   gem "factory_bot_rails"
+  gem 'faker'
+  gem 'rspec-rails'
 end
