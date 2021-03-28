@@ -1,6 +1,5 @@
 class ShoesController < ApplicationController
   def new
-    # byebug
     @shoe = Shoe.new
     @shoe.shoe_images.build
     @shoe_brand = ShoeBrand.all.order("brand_name ASC")
@@ -19,7 +18,7 @@ class ShoesController < ApplicationController
 
   def index
     if params[:q]
-      @search = Shoe.ransack(params[:q]) 
+      @search = Shoe.ransack(params[:q])
       @shoes = @search.result(distinct: true).order(created_at: 'DESC').includes(:user).page(params[:page]).per(5)
       pp @shoes
     else
@@ -49,7 +48,7 @@ class ShoesController < ApplicationController
   def update
     @shoe = Shoe.find(params[:id])
     if @shoe.update(shoe_params)
-      redirect_to shoe_path(@shoe), notice: 'You have updated shoes successfully.'
+      redirect_to shoe_path(@shoe), notice: 'You have updated plans successfully.'
     else
       render 'edit'
     end

@@ -5,7 +5,7 @@
   margin-top: 50px;
 }
 .about-img {
-  background-image: url("about_shoes.JPG");
+  background-image: url(asset_path("about_shoes.JPG"));
   background-size: cover;
   background-position: center;
   width: 600px;
@@ -46,7 +46,7 @@
 }
 
 .about-img2 {
-  background-image: url("shoes_about4.JPG");
+  background-image: url(asset_path("shoes_about4.JPG"));
   background-size: cover;
   background-position: center;
   width: 400px;
@@ -54,7 +54,7 @@
 }
 
 .about-img3 {
-  background-image: url("shoes_about2.JPG");
+  background-image: url(asset_path("shoes_about2.JPG"));
   background-size: cover;
   background-position: center;
   width: 400px;
@@ -62,7 +62,7 @@
 }
 
 .about-img4 {
-  background-image: url("shoes2.JPG");
+  background-image: url(asset_path("shoes2.JPG"));
   background-size: cover;
   background-position: center;
   width: 400px;
@@ -70,7 +70,7 @@
 }
 
 .about-img5 {
-  background-image: url("shoes_about3.JPG");
+  background-image: url(asset_path("shoes_about3.JPG"));
   background-size: cover;
   background-position: center;
   width: 400px;

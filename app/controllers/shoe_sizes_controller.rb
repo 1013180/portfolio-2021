@@ -5,7 +5,6 @@ class ShoeSizesController < ApplicationController
   end
 
   def create
-    # byebug
     @shoe_size = ShoeSize.new(shoe_size_params)
     if @shoe_size.save
       redirect_to shoe_sizes_path

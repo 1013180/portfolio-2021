@@ -45,9 +45,9 @@
     <td><%= link_to "Edit", edit_shoe_path(shoe.id), class: "btn btn-sm btn-success" %></td>
     <td><%= link_to 'Destroy', shoe_path(shoe), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_shoe_#{shoe.id}"%></td>
     <% end %>
-  </tr>
-<% end %>
-</table>
+   </tr>
+  <% end %>
+  </table>
 
 <div class="paginate">
  <%= paginate(@shoes) %>

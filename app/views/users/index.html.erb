@@ -6,7 +6,7 @@
      <% end %>
      <table class='table'>
       <tr>
-    	  <th>name</th>
+       <th>name</th>
     	  <th><%= @users.name %></th>
       </tr>
       <tr>
@@ -36,6 +36,7 @@
 
   <% if @users.id == current_user.id %>
       <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog text-primary edit_user_#{user.id}" %>
+      <%= link_to '予定の追加・確認', plans_path(current_user.id),class: 'btn btn-outline-secondary btn-block fas fa-calendar-week nav-link text-primary' %>
   <% end %>
   </div>
 
@@ -81,4 +82,4 @@
    <%= paginate(@user) %>
  </div>
  </div>
-</div>
+ </div>
