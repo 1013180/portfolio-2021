@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_102545) do
     t.integer "user_id"
     t.integer "shoe_size_id", null: false
     t.integer "shoe_brand_id", null: false
-    t.integer "tag_id"
     t.integer "comment_id"
     t.integer "favorite_id"
     t.text "description"

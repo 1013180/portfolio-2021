@@ -69,9 +69,17 @@
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <a href="https://1111216843b342ed99b5e18e0763f564.vfs.cloud9.ap-northeast-1.amazonaws.com/" title="Home" class="fas fa-home">Home</a>
-            <a href="https://1111216843b342ed99b5e18e0763f564.vfs.cloud9.ap-northeast-1.amazonaws.com/home/about" class="fas fa-audio-description">About</a>
-            <a href="mailto:hiroki.kojima0417@gmail.com" class="fas fa-envelope-square">Contact</a>
+            <!--<a href="https://1111216843b342ed99b5e18e0763f564.vfs.cloud9.ap-northeast-1.amazonaws.com/" title="Home" class="fas fa-home">Home</a>-->
+            <a>
+              <%= link_to "Home", root_path,class: 'fas fa-home' %>
+            </a>
+             <a>
+              <%= link_to "About", home_about_path,class: 'fas fa-audio-description' %>
+            </a>
+             <a>
+              <a href="mailto:hiroki.kojima0417@gmail.com" class="fas fa-envelope-square">Contact</a>
+            </a>
+            <!--<a href="https://1111216843b342ed99b5e18e0763f564.vfs.cloud9.ap-northeast-1.amazonaws.com/home/about" class="fas fa-audio-description">About</a>-->
           </div>
         </div>
       <div class="text-center">

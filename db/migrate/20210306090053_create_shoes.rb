@@ -4,7 +4,6 @@ class CreateShoes < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.integer :shoe_size_id, null: false
       t.integer :shoe_brand_id, null: false
-      t.integer :tag_id
       t.integer :comment_id
       t.integer :favorite_id
       t.text :description
