@@ -16,7 +16,7 @@
   <%= form_with model:@shoe_brand, method: :patch, local:true do |f| %>
   <thead>
     <tr>
-      <th>ジャンル名</th>
+      <th>ブランド名</th>
       <th><%= f.text_field :brand_name %></th>
       <th><%= f.submit '変更を保存', class: "btn btn-success"  %></th>
     </tr>
