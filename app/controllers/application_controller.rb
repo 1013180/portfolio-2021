@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   before_action :set_search
 
   def set_search
-    @search = Shoe.ransack(params[:q]) # ransackの検索メソッド
+    @search = Shoe.ransack(params[:q]) 
   end
 end

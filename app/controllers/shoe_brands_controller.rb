@@ -6,7 +6,6 @@ class ShoeBrandsController < ApplicationController
   end
 
   def create
-    # byebug
     @shoe_brand = ShoeBrand.new(shoe_brand_params)
     if @shoe_brand.save
       redirect_to shoe_brands_path

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  # root 'shoes#index'
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
   root to: 'plans#index'
@@ -24,5 +23,4 @@ Rails.application.routes.draw do
     end
   end
   post '/homes/guest_sign_in', to: 'homes#new_guest'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
