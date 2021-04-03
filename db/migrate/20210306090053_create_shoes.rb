@@ -8,6 +8,7 @@ class CreateShoes < ActiveRecord::Migration[5.2]
       t.integer :favorite_id
       t.text :description
       t.string :shoe_model
+      t.decimal :score, precision: 5, scale: 3
       t.timestamp :created_at
       t.timestamp :updated_at
     end

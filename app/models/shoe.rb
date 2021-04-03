@@ -4,6 +4,7 @@ class Shoe < ApplicationRecord
   has_many :after_images, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :tags, dependent: :destroy
   accepts_attachments_for :shoe_images, attachment: :before_image
   accepts_attachments_for :after_images, attachment: :after_image
   belongs_to :shoe_brand, optional: true

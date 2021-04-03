@@ -12,6 +12,11 @@
       <% else %>
         画像はありません。
       <% end %>
+      <div class="tag-box">
+      <% @shoe.tags.each do |tag| %>
+        <span class="label"><%= tag.name %></span>
+      <% end %>
+      <div>
 
 
       <h2>【AFTER】</h2>
@@ -22,6 +27,11 @@
       <% else %>
         画像はありません。
       <% end %>
+      <div class="tag-box">
+      <% @shoe.tags.each do |tag| %>
+        <span class="label"><%= tag.name %></span>
+      <% end %>
+      <div>
        </div>
  　　</div>
 　</div>
@@ -70,6 +80,17 @@
           </div>
         </th>
       </tr>
+      <tr>
+        <th>
+          <div class="form-group row">
+            <p class="col-md-5 pt-0 mb-0">introductionの感情分析スコア</p>
+        </th>
+        <th>
+            [<%= @shoe.score %>]
+          </div>
+        </th>
+      </tr>
+      <tr>
       <tr>
         <th>
           <div id="favorites_buttons_<%= @shoe.id %>">

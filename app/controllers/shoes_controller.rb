@@ -8,8 +8,19 @@ class ShoesController < ApplicationController
 
   def create
     @shoe = Shoe.new(shoe_params)
+    @shoe.score = Language.get_data(shoe_params[:description])
     @shoe.user_id = current_user.id
     if @shoe.save
+      tags = []
+      @shoe.after_images.each do |after_image|
+        tags.concat(Vision.get_image_data(after_image.after_image))
+      end
+      @shoe.shoe_images.each do |shoe_image|
+        tags.concat(Vision.get_image_data(shoe_image.before_image))
+      end
+      tags.each do |tag|
+        @shoe.tags.create(name: tag)
+      end
       redirect_to shoe_path(@shoe)
     else
       render :new
